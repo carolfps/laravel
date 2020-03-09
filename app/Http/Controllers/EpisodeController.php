@@ -27,8 +27,8 @@ class EpisodeController extends Controller
         // $episode->save();
 
         //mostrando na tela os dados do episodio que acabamos de inserir
-        // $episode = Episode::find(58);
-        // dd($episode->toArray());
+        $episode = Episode::find(58);
+        dd($episode->toArray());
 
         //Editando o título episodio com id=1
         // $episode = Episode::find(1);
@@ -36,8 +36,8 @@ class EpisodeController extends Controller
         // $episode->save();
 
         //Deletando uma linha da tabela episodes 
-        $episode = Episode::find(58);
-        $episode->delete();
+        //$episode = Episode::find(58);
+        //$episode->delete();
 
     }
 

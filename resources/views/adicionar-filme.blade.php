@@ -8,6 +8,7 @@
     </head>
     <body>
         <div class="container">
+            <h2>Adicionar Filme</h2>
             <form id="adicionarFilme" name="adicionarFilme" method="POST" class="card card-sm">
                 @csrf
                 <div class="card-body">
