@@ -29,3 +29,12 @@ Route::get('/adicionar-filme','FilmeController@adicionarFilme');
 
 Route::post('/adicionar-filme','FilmeController@adicionarFilmePost');
 
+Route::get('/adicionar-usuario', 'UserController@create');
+Route::post('/adicionar-usuario', 'UserController@store');
+
+Route::get('/usuarios', 'UserController@index');
+
+//utilizando autenticação
+// Route::get('/usuarios', 'UserController@index')->middleware('auth'); //se nao tem autorizacao redireciona para a página de login
+
+// Route::auth();

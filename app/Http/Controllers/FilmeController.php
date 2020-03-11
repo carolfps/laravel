@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Http\Requests\FilmeRequest;
 
 class FilmeController extends Controller
 {
@@ -92,14 +93,14 @@ class FilmeController extends Controller
         return view("adicionar-filme");
     }
 
-    public function adicionarFilmePost(Request $request){
+    public function adicionarFilmePost(FilmeRequest $request){ //tem que colocar que o "tipo" é FilmeRequest
         $novoFilme = new Movie();
         $novoFilme-> title = $request->titulo;
         $novoFilme-> rating = $request->classificacao;
         $novoFilme-> awards = $request->premios;
         $novoFilme-> length = $request->duracao;
         $novoFilme-> release_date = "$request->ano-$request->mes-$request->dia 00:00:00";
-        $novoFilme->save();
+        //$novoFilme->save();
         //return "Filme adicionado com sucesso";
         return redirect('/filmes')->with('mensagem','Formulario salvo');
     }
