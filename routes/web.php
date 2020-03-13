@@ -17,6 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/collection',function(){
+    //$episode = App\Episode::find(1);
+    //$actor = App\Actor::find(33);
+    //dd($episode->actors->toArray());
+    //dd($actor->episodes->pluck('title'));
+    // $genre = App\Genre::find(3);
+    // dd($genre->movies->pluck('title'));
+
+    $actor = App\Actor::find(1);
+    dd($actor->first_name, $actor->favorite_movie->toArray());
+});
+
 Route::get('/episodes', 'EpisodeController@index');
 
 Route::get('/filmes/{id}','FilmeController@procurarFilmeId');

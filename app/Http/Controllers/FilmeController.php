@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use App\Http\Requests\FilmeRequest;
+use App\Genre;
 
 class FilmeController extends Controller
 {
@@ -90,7 +91,8 @@ class FilmeController extends Controller
     // }
 
     public function adicionarFilme(){
-        return view("adicionar-filme");
+        $genres = Genre::all();
+        return view("adicionar-filme", ["genres"=>$genres]);
     }
 
     public function adicionarFilmePost(FilmeRequest $request){ //tem que colocar que o "tipo" é FilmeRequest
@@ -100,7 +102,14 @@ class FilmeController extends Controller
         $novoFilme-> awards = $request->premios;
         $novoFilme-> length = $request->duracao;
         $novoFilme-> release_date = "$request->ano-$request->mes-$request->dia 00:00:00";
-        //$novoFilme->save();
+        $novoFilme-> genre_id = $request->genre_id;
+        $novoFilme->save();
+
+        //para usar o método abaixo, o nome dos campos deve ser igual ao campo da tabela
+        // $data = $request->all();
+        // $novoFilme = new Movie();
+        // $novoFilme-> release_date = "$request->ano-$request->mes-$request->dia 00:00:00";
+        // $novoFilme -> fill($data->save());
         //return "Filme adicionado com sucesso";
         return redirect('/filmes')->with('mensagem','Formulario salvo');
     }

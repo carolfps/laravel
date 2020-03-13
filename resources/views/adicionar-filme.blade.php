@@ -71,7 +71,16 @@
                     @enderror
                     @error('ano')
                         <div class="text-danger">{{ $message }}</div>
-                    @enderror
+                    @enderror                    
+                </div>
+                <div class="form-group">
+                    <label>Gêneros</label>
+                    <select  class="form-control" name="genre_id">
+                        <option value="">Selecione um filme</option>
+                        @foreach($genres->sortBy('name') as $genre)
+                            <option value="{{ $genre['id'] }}">{{ $genre['name'] }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <input type="submit" class="btn btn-success" value="Adicionar Filme" name="submit"/>
             </div>
