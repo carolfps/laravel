@@ -24,10 +24,10 @@ class FilmeRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => 'required',
-            'classificacao' => 'required|numeric|max:10',
-            'premios' => 'required|integer',
-            'duracao' => 'required|numeric',
+            'title' => 'required',
+            'rating' => 'required|numeric|max:10',
+            'awards' => 'required|integer',
+            'length' => 'required|numeric',
             'dia' => 'required',
             'mes' => 'required',
             'ano' => 'required'
@@ -37,13 +37,13 @@ class FilmeRequest extends FormRequest
     //inserindo mensagens de erro personalizadas
     public function messages(){
         return [
-            'titulo.required' => 'O campo título é obrigatório.',
-            'classificacao.required' => 'O campo classificação é obrigatório.',
-            'classificacao.numeric' => 'O campo classificação precisa ser numérico.',
-            'premios.required' => 'O campo prêmios é obrigatório.',
-            'premios.integer' => 'O campo prêmios precisa ser um número inteiro.',
-            'duracao.required' => 'O campo duração é obrigatório.',
-            'duracao.integer' => 'O campo duração precisa ser numérico',
+            'title.required' => 'O campo título é obrigatório.',
+            'rating.required' => 'O campo classificação é obrigatório.',
+            'rating.numeric' => 'O campo classificação precisa ser numérico.',
+            'awards.required' => 'O campo prêmios é obrigatório.',
+            'awards.integer' => 'O campo prêmios precisa ser um número inteiro.',
+            'length.required' => 'O campo duração é obrigatório.',
+            'length.integer' => 'O campo duração precisa ser numérico',
             'dia.required' => 'O campo dia é obrigatório.',
             'mes.required' => 'O campo mês é obrigatório.',
             'ano.required' => 'O campo ano é obrigatório.',

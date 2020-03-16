@@ -97,10 +97,10 @@ class FilmeController extends Controller
 
     public function adicionarFilmePost(FilmeRequest $request){ //tem que colocar que o "tipo" é FilmeRequest
         $novoFilme = new Movie();
-        $novoFilme-> title = $request->titulo;
-        $novoFilme-> rating = $request->classificacao;
-        $novoFilme-> awards = $request->premios;
-        $novoFilme-> length = $request->duracao;
+        $novoFilme-> title = $request->title;
+        $novoFilme-> rating = $request->rating;
+        $novoFilme-> awards = $request->awards;
+        $novoFilme-> length = $request->length;
         $novoFilme-> release_date = "$request->ano-$request->mes-$request->dia 00:00:00";
         $novoFilme-> genre_id = $request->genre_id;
         $novoFilme->save();

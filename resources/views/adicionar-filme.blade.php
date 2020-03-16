@@ -9,35 +9,35 @@
     <body>
         <div class="container">
             <h2>Adicionar Filme</h2>
-            <form id="adicionarFilme" name="adicionarFilme" method="POST" class="card card-sm">
+            <form id="adicionarFilme" action="/api/filmes" name="adicionarFilme" method="POST" class="card card-sm">
                 @csrf
                 <div class="card-body">
                     
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <input class="form-control" type="text" name="titulo" id="titulo" value="{{ old('titulo') }}"/> {{--A função old('nome_do_campo') guarda o valor inserido no form--}}
-                    @error('titulo')
+                    <input class="form-control" type="text" name="title" id="titulo" value="{{ old('title') }}"/> {{--A função old('nome_do_campo') guarda o valor inserido no form--}}
+                    @error('title')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="classificacao">Classificação</label>
-                <input class="form-control" type="text" name="classificacao" id="classificacao" value="{{ old('classificacao') }}"/>
-                    @error('classificacao')
+                <input class="form-control" type="text" name="rating" id="classificacao" value="{{ old('rating') }}"/>
+                    @error('rating')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="premios">Prêmios</label>
-                    <input class="form-control" type="text" name="premios" id="premios"  value="{{ old('premios') }}"/>
-                    @error('premios')
+                    <input class="form-control" type="text" name="awards" id="premios"  value="{{ old('awards') }}"/>
+                    @error('awards')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="duracao">Duração</label>
-                    <input class="form-control" type="text" name="duracao" id="duracao" value="{{ old('duracao') }}"/> 
-                    @error('duracao')
+                    <input class="form-control" type="text" name="length" id="duracao" value="{{ old('length') }}"/> 
+                    @error('length')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
