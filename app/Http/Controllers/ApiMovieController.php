@@ -41,9 +41,10 @@ class ApiMovieController extends Controller
      * @param  \App\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $movie)
+    public function show(Request $request, $id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        return $movie;
     }
 
     /**
@@ -53,9 +54,14 @@ class ApiMovieController extends Controller
      * @param  \App\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::find($id); //traz os dados do banco
+        $movie->fill($request->all()); //preenche com os valores do request
+        $movie->save();
+
+        return $movie; //retorna para o navegador o movie em formato JSON
+        
     }
 
     /**
@@ -64,8 +70,9 @@ class ApiMovieController extends Controller
      * @param  \App\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movie $movie)
+    public function destroy($id)
     {
-        //
+        $movie = Movie::findOrFail($id);
+        $movie->delete();
     }
 }

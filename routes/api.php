@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('filmes', 'ApiMovieController');
+// Route::apiResource('filmes', 'ApiMovieController')->middleware('auth:api'); //autenticação para proteger de alguém conseguir mexer no BD
